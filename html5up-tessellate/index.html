@@ -28,7 +28,30 @@
 
 		<!-- Header -->
 		<section id="header" class="dark">
-			<header>
+			<header class="header alt">
+				<!-- nav bar -->
+				<nav id="nav">
+					<ul>
+						<li class="current"><a href="#">Welcome</a></li>
+						<li class="submenu opener">
+							<a href="#">Main Dropdown</a>
+							<ul>
+								<li><a href="#">First</a></li>
+								<li><a href="#">Second</a></li>
+								<li class="submenu opener">
+									<a href="#">Submenu</a>
+									<ul>
+										<li><a href="#">First Sub</a></li>
+										<li><a href="#">Second Sub</a></li>
+										<li><a href="#">Third Sub</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#" class="button primary">Contact Me</a></li>
+					</ul>
+				</nav>
+
 				<h1>Welcome to Cara's Corner</h1>
 				<!-- <p>A free responsive site template by <a href="http://html5up.net">HTML5 UP</a></p> -->
 
@@ -120,6 +143,18 @@
 
 		<!-- First -->
 		<section id="first" class="main">
+			<!-- Scripts -->
+			<script type="text/javascript">
+				function toggle_visibility(id) {
+					var e = document.getElementById(id);
+
+					if (e.style.display == "block")
+						e.style.display = "none";
+					else
+						e.style.display = 'block';
+				}
+			</script>
+			<!-- End scripts -->
 			<header>
 				<div class="container">
 					<h2>CS ⇒ Neuroscience ⇒ Artistry ⇒ Ruminations</h2>
@@ -138,38 +173,77 @@
 					<div class="row">
 						<div class="col-4 col-12-narrow">
 							<section>
-								<span class="feature-icon"><span class="icon fa-clock"></span></span>
+								<a href="#" onclick="toggle_visibility('about'); return false" style="text-decoration: none;">
+									<span class="feature-icon">
+										<span class="icon solid fa-info-circle"></span>
+									</span>
+								</a>
 								<header>
-									<h3><code style="color : #FEDFF3; font-size: 30px;">About Cara</code></h3>
+									<h3>
+										<a href="#" onclick="toggle_visibility('about'); return false" style="text-decoration: none;">
+											<code style="color : #FEDFF3; font-size: 30px;">
+												About Cara
+											</code>
+										</a>
+									</h3>
 								</header>
-								<p>Gravida dis placerat lectus ante vel nunc euismod est turpis sodales.
+								<!-- <div>
+									<a href="#" onclick="toggle_visibility('foo'); return false">Click Me</a>
+								</div> -->
+								<div id="about" style="display: block;">
+									Gravida dis placerat lectus ante vel nunc euismod est turpis sodales.
 									Diam tempor dui lacinia accumsan vivamus. Gravida dis placerat lectus
 									ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia
-								accumsan vivamus.</p>
+									accumsan vivamus.
+								</div>
 							</section>
 						</div>
 						<div class="col-4 col-12-narrow">
 							<section>
-								<span class="feature-icon"><span class="icon solid fa-bolt"></span></span>
+								<a href="#" onclick="toggle_visibility('resume'); return false" style="text-decoration: none;">
+									<span class="feature-icon">
+										<span class="icon solid fa-file"></span>
+									</span>
+								</a>
 								<header>
-									<h3><code style="color : #FEDFF3; font-size: 30px;">Résumé</code></h3>
+									<h3>
+										<a href="#" onclick="toggle_visibility('resume'); return false" style="text-decoration: none;">
+											<code style="color : #FEDFF3; font-size: 30px;">
+												Résumé
+											</code>
+										</a>
+									</h3>
 								</header>
-								<p>Gravida dis placerat lectus ante vel nunc euismod est turpis sodales.
+								<div id="resume" style="display: block;">
+									Gravida dis placerat lectus ante vel nunc euismod est turpis sodales.
 									Diam tempor dui lacinia accumsan vivamus. Gravida dis placerat lectus
 									ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia
-								accumsan vivamus.</p>
+									accumsan vivamus.
+								</div>
 							</section>
 						</div>
 						<div class="col-4 col-12-narrow">
 							<section>
-								<span class="feature-icon"><span class="icon solid fa-cloud"></span></span>
+								<a href="#" onclick="toggle_visibility('portfolio'); return false" style="text-decoration: none;">
+									<span class="feature-icon">
+										<span class="icon solid fa-folder-open"></span>
+									</span>
+								</a>
 								<header>
-									<h3><code style="color: #FEDFF3; font-size: 30px;">Portfolio</code></h3>
+									<h3>
+										<a href="#" onclick="toggle_visibility('portfolio'); return false" style="text-decoration: none;">
+											<code style="color: #FEDFF3; font-size: 30px;">
+												Portfolio
+											</code>
+										</a>
+									</h3>
 								</header>
-								<p>Gravida dis placerat lectus ante vel nunc euismod est turpis sodales.
+								<div id="portfolio" style="display: block;">
+									Gravida dis placerat lectus ante vel nunc euismod est turpis sodales.
 									Diam tempor dui lacinia accumsan vivamus. Gravida dis placerat lectus
 									ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia
-								accumsan vivamus.</p>
+									accumsan vivamus.
+								</div>
 							</section>
 						</div>
 						<div class="col-12">
@@ -501,6 +575,9 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+
+		<!-- Cara added -->
+		<script src="assets/js/jquery.dropotron.min.js"></script>
 
 	</body>
 	</html>
