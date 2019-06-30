@@ -154,7 +154,53 @@
 						e.style.display = 'block';
 				}
 			</script>
+
+			<!-- Change col size testing -->
+			<script type="text/javascript">
+				function toggle_cols(){
+					var columns_container = $(".dynamic-columns");
+					if (!columns_container.hasClass("expanded")) {
+						$(".dynamic-columns .col:nth-child(1)").removeClass("col-4");
+						$(".dynamic-columns .col:nth-child(1)").css("visibility", "hidden");
+						/*$(".dynamic-columns .col:nth-child(1)").css("max-height", 1);*/
+
+						$(".dynamic-columns .col:nth-child(2)").removeClass("col-4");
+						$(".dynamic-columns .col:nth-child(2)").addClass("col-8");
+
+						$(".dynamic-columns .col:nth-child(3)").removeClass("col-4");
+						$(".dynamic-columns .col:nth-child(3)").css("visibility", "hidden");
+						/*$(".dynamic-columns .col:nth-child(3)").css("max-height", 1);*/
+						columns_container.toggleClass("expanded");
+					}
+					else {
+						$(".dynamic-columns .col:nth-child(1)").addClass("col-4");
+						$(".dynamic-columns .col:nth-child(1)").css("visibility", "visible");
+						/*$(".dynamic-columns .col:nth-child(1)").css("max-height", 100%);*/
+
+						$(".dynamic-columns .col:nth-child(2)").removeClass("col-8");
+						$(".dynamic-columns .col:nth-child(2)").addClass("col-4");
+
+						$(".dynamic-columns .col:nth-child(3)").addClass("col-4");
+						$(".dynamic-columns .col:nth-child(3)").css("visibility", "visible");
+						/*$(".dynamic-columns .col:nth-child(3)").css("max-height", 100%);*/
+						columns_container.toggleClass("expanded");
+					}
+				}
+			</script>
+
+			<!-- change button text for resume -->
+			<script type="text/javascript">
+				function show_close() {
+					var button = document.getElementById("res_button");
+					if (button.value == "Reveal Résumé") {
+						button.value = "Hide Résumé";
+					} else {
+						button.value = "Reveal Résumé";
+					}
+				}
+			</script>
 			<!-- End scripts -->
+
 			<header>
 				<div class="container">
 					<h2>CS ⇒ Neuroscience ⇒ Artistry ⇒ Ruminations</h2>
@@ -168,10 +214,34 @@
 					</p>
 				</div>
 			</header>
+
+			<!-- tester -->
+			<!-- <div class="container-fluid">
+				<div class="row dynamic-columns">
+					<button class="col-1" onclick="toggle_cols();">Toggle</button>
+					<div class="col-4 col" style="background-color: rgb(0, 0, 0);">
+						<h4>First Column</h4>
+					</div>
+					<div class="col-4 col" style="background-color: rgb(0, 0, 0);">
+						<h4>Second Column</h4>
+					</div>
+					<div class="col-4 col"  style="background-color: rgb(0, 0, 0);">
+						<h4>Third column</h4>
+					</div>
+				</div>
+			</div> -->
+			<!-- end tester -->
+
 			<div class="content dark style1 featured">
-				<div class="container">
-					<div class="row">
-						<div class="col-4 col-12-narrow">
+				<div class="container-fluid">
+					<div class="col-12">
+						<footer>
+							<a href="#" class="button scrolly" onclick="toggle_cols(); toggle_visibility('resume'); show_close(); return false"><input type="button" name="resume_button" id="res_button" value="Reveal Résumé" style="background: transparent; border: none;"></input></a>
+							<br> <br>
+						</footer>
+					</div>
+					<div class="row dynamic-columns">
+						<div class="col-4 col-12-narrow col">
 							<section>
 								<a href="#" onclick="toggle_visibility('about'); return false" style="text-decoration: none;">
 									<span class="feature-icon">
@@ -191,38 +261,46 @@
 									<a href="#" onclick="toggle_visibility('foo'); return false">Click Me</a>
 								</div> -->
 								<div id="about" style="display: block;">
-									Gravida dis placerat lectus ante vel nunc euismod est turpis sodales.
-									Diam tempor dui lacinia accumsan vivamus. Gravida dis placerat lectus
-									ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia
-									accumsan vivamus.
+									<p>
+										I am a current sophomore at the <code style="color: #FFF4FB; font-size: 18px;">University of California, Berkeley</code> studying <code style="color: #FFF4FB; font-size: 18px;">Electrical Engineering & Computer Science</code> and <code style="color: #FFF4FB; font-size: 18px;">Molecular & Cell Biology</code> with an emphasis in Neurobiology (or Immunology & Pathogenesis).
+									</p> 
+									<p>
+										Although I did have a tough first year, I grew from first to second semester, and did significantly better in the latter. I'm a fast learner and extremely dedicated and hard worker, with a slight problem refusing any task. Anything that comes under my paradigm is treated with an unwavering dedication and is always completed with precision and attention to detail.
+									</p>
+									<p>
+										I have a wide array of interests and contrary to popular belief, I do not believe spreading yourself in a variety of directions will diminish passion and dedication to any particular field, so long as you find quality time for each. <code style="color: #FFF4FB; font-size: 18px;">Computer science</code> is something I picked up very late and I'm still exploring the intricacies and applications of the subject. However, <code style="color: #FFF4FB; font-size: 18px;">diseases</code>, from <code style="color: #FFF4FB; font-size: 18px;">neurodegenerative</code> to <code style="color: #FFF4FB; font-size: 18px;">highly infectious</code> to <code style="color: #FFF4FB; font-size: 18px;">genetic</code>, has always been a passion of mine, coupled with a deep love of social work. I hope to be able to combine these focuses eventually into a more funneled area of research and application.
+									</p>
+									<p>
+										As a self-identifying inventor of useful (or not) paraphernalia and creator of nutty ideas, I pride myself in keeping a journal (and in the modern day, Trello) of creations, from web services to apps to chemical and material science ventures to crazy genetic engineering. These creations vary in stages of completion but I can generally categorise them in the following: completed, highly buggy but vaguely done, started-but-now-sitting-in-storage, planned, and pure imagination.
+									</p>
+									<p>
+										I would personally love to talk to anyone about these ideas, not just for developing them further but also just to talk to people. I enjoy bouncing ideas and discussions off of experts of any subject, so please don't hesitate to <a href="#">contact me</a> if you're interested in sharing thoughts over tea and pastries!
+									</p>
 								</div>
 							</section>
 						</div>
-						<div class="col-4 col-12-narrow">
+						<div class="col-4 col-12-narrow col">
 							<section>
-								<a href="#" onclick="toggle_visibility('resume'); return false" style="text-decoration: none;">
+								<a href="files/resume_test.pdf" target="_blank" style="text-decoration: none;">
 									<span class="feature-icon">
 										<span class="icon solid fa-file"></span>
 									</span>
 								</a>
 								<header>
 									<h3>
-										<a href="#" onclick="toggle_visibility('resume'); return false" style="text-decoration: none;">
+										<a href="files/resume_test.pdf" target="_blank" style="text-decoration: none;">
 											<code style="color : #FEDFF3; font-size: 30px;">
 												Résumé
 											</code>
 										</a>
 									</h3>
 								</header>
-								<div id="resume" style="display: block;">
-									Gravida dis placerat lectus ante vel nunc euismod est turpis sodales.
-									Diam tempor dui lacinia accumsan vivamus. Gravida dis placerat lectus
-									ante vel nunc euismod est turpis sodales. Diam tempor dui lacinia
-									accumsan vivamus.
+								<div id="resume" style="display: none;">
+									<iframe src="files/resume_test.pdf" style="width: 100%; height: 1040px"></iframe>
 								</div>
 							</section>
 						</div>
-						<div class="col-4 col-12-narrow">
+						<div class="col-4 col-12-narrow col">
 							<section>
 								<a href="#" onclick="toggle_visibility('portfolio'); return false" style="text-decoration: none;">
 									<span class="feature-icon">
@@ -286,12 +364,12 @@
 						</div>
 						<div class="col-8 col-12-narrow">
 							<div class="row">
-								<div class="col-6"><a href="#" class="image fit"><img src="Art/13thGrade-CollegeY1/IMG_3518.JPG" alt="Train Of War" /></a></div>
-								<div class="col-6"><a href="#" class="image fit"><img src="Art/13thGrade-CollegeY1/IMG_3515.JPG" alt="Butterfly Mist" /></a></div>
-								<div class="col-6"><a href="#" class="image fit"><img src="Art/9thGrade/10-SunsetCabins.JPG" alt="Cabin in the Woods" /></a></div>
-								<div class="col-6"><a href="#" class="image fit"><img src="Art/8thGrade/12-Farmhouse.jpg" alt="Opalescent Farmhouse" /></a></div>
-								<div class="col-6"><a href="#" class="image fit"><img src="Art/7thGrade/9-BallerinaAtWindow.jpg" alt="Italian Ballet" /></a></div>
-								<div class="col-6"><a href="#" class="image fit"><img src="Art/6thGrade/8-StarryNight.jpg" alt="Imitation of Van Gogh's Starry Starry Night" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="art/13thGrade-CollegeY1/IMG_3518.JPG" alt="Train Of War" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="art/13thGrade-CollegeY1/IMG_3515.JPG" alt="Butterfly Mist" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="art/9thGrade/10-SunsetCabins.JPG" alt="Cabin in the Woods" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="art/8thGrade/12-Farmhouse.jpg" alt="Opalescent Farmhouse" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="art/7thGrade/9-BallerinaAtWindow.jpg" alt="Italian Ballet" /></a></div>
+								<div class="col-6"><a href="#" class="image fit"><img src="art/6thGrade/8-StarryNight.jpg" alt="Imitation of Van Gogh's Starry Starry Night" /></a></div>
 							</div>
 						</div>
 					</div>
@@ -578,6 +656,7 @@
 
 		<!-- Cara added -->
 		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 	</body>
 	</html>
