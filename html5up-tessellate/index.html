@@ -63,7 +63,8 @@
 
 				<!-- Trial for Typewriter -->
 				<!-- <button onclick="typeWriter()">Click me</button> -->
-				<p id="subheading"></p>
+				<br>
+				<code id="subheading" style="font-size: 20px; color: #F8BEE3;"></code>
 
 				<script>
 					var i = 0;
@@ -71,8 +72,10 @@
 					var k = 0;
 					var l = 0;
 					var m = 0;
+					var wrote = false;
+
 					var txt = ["EECS | MCB Undergraduate @ UC Berkeley", "Founder, The Hope Beyond Now", "Web Development Intern @ GoSkyHy", "Infectious Disease Enthusiast", "Student, Runner, Artist, Writer"];
-					var speed = 50;
+					/*var speed = 100;*/
 
 					function typeWriterFive() {
 						if (m == 0) {
@@ -81,54 +84,110 @@
 						if (m < txt[4].length) {
 							document.getElementById("subheading").innerHTML += txt[4].charAt(m);
 							m++;
-							setTimeout(typeWriterFive, speed);
+							setTimeout(typeWriterFive, 100);
 						}
 					}
 
 					function typeWriterFour() {
-						if (l == 0) {
+						if (l == 0 && !wrote) {
 							document.getElementById("subheading").innerHTML = "";
 						}
-						if (l < txt[3].length) {
+						if (l < txt[3].length && !wrote) {
+							if (l == txt[3].length - 1) {
+								wrote = true;
+								setTimeout(typeWriterFour, 2000);
+							}
 							document.getElementById("subheading").innerHTML += txt[3].charAt(l);
 							l++;
-							setTimeout(typeWriterFour, speed);
+							setTimeout(typeWriterFour, 100);
+						} else if (wrote) {
+							if (l == 0) {
+								wrote = false;
+								document.getElementById("subheading").innerHTML = document.getElementById("subheading").innerHTML.substring(0, l);
+								l = txt[3].length + 1;
+								setTimeout(typeWriterFour, 1000);
+							}
+							document.getElementById("subheading").innerHTML = document.getElementById("subheading").innerHTML.substring(0, l);
+							l--;
+							setTimeout(typeWriterFour, 50);
 						} else {
 							setTimeout(typeWriterFive, 1000);
 						}
 					}
 
 					function typeWriterThree() {
-						if (k == 0) {
+						if (k == 0 && !wrote) {
 							document.getElementById("subheading").innerHTML = "";
 						}
-						if (k < txt[2].length) {
+						if (k < txt[2].length && !wrote) {
+							if (k == txt[2].length - 1) {
+								wrote = true;
+								setTimeout(typeWriterThree, 2000);
+							}
 							document.getElementById("subheading").innerHTML += txt[2].charAt(k);
 							k++;
-							setTimeout(typeWriterThree, speed);
+							setTimeout(typeWriterThree, 100);
+						} else if (wrote) {
+							if (k == 0) {
+								wrote = false;
+								document.getElementById("subheading").innerHTML = document.getElementById("subheading").innerHTML.substring(0, k);
+								k = txt[2].length + 1;
+								setTimeout(typeWriterThree, 1000);
+							}
+							document.getElementById("subheading").innerHTML = document.getElementById("subheading").innerHTML.substring(0, k);
+							k--;
+							setTimeout(typeWriterThree, 50);
 						} else {
 							setTimeout(typeWriterFour, 1000);
 						}
 					}
 
 					function typeWriterTwo() {
-						if (j == 0) {
+						if (j == 0 && !wrote) {
 							document.getElementById("subheading").innerHTML = "";
 						}
-						if (j < txt[1].length) {
+						if (j < txt[1].length && !wrote) {
+							if (j == txt[1].length - 1) {
+								wrote = true;
+								setTimeout(typeWriterTwo, 2000);
+							}
 							document.getElementById("subheading").innerHTML += txt[1].charAt(j);
 							j++;
-							setTimeout(typeWriterTwo, speed);
+							setTimeout(typeWriterTwo, 100);
+						} else if (wrote) {
+							if (j == 0) {
+								wrote = false;
+								document.getElementById("subheading").innerHTML = document.getElementById("subheading").innerHTML.substring(0, j);
+								j = txt[1].length + 1;
+								setTimeout(typeWriterTwo, 1000);
+							}
+							document.getElementById("subheading").innerHTML = document.getElementById("subheading").innerHTML.substring(0, j);
+							j--;
+							setTimeout(typeWriterTwo, 50);
 						} else {
 							setTimeout(typeWriterThree, 1000);
 						}
 					}
 
 					function typeWriter() {
-						if (i < txt[0].length) {
+						if (i < txt[0].length && !wrote) {
+							if (i == txt[0].length - 1) {
+								wrote = true;
+								setTimeout(typeWriter, 2000);
+							}
 							document.getElementById("subheading").innerHTML += txt[0].charAt(i);
 							i++;
-							setTimeout(typeWriter, speed);
+							setTimeout(typeWriter, 100);
+						} else if (wrote) {
+							if (i == 0) {
+								wrote = false;
+								document.getElementById("subheading").innerHTML = document.getElementById("subheading").innerHTML.substring(0, i);
+								i = txt[0].length + 1;
+								setTimeout(typeWriter, 1000);
+							}
+							document.getElementById("subheading").innerHTML = document.getElementById("subheading").innerHTML.substring(0, i);
+							i--;
+							setTimeout(typeWriter, 50);
 						} else {
 							setTimeout(typeWriterTwo, 1000);
 						}
